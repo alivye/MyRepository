@@ -18,6 +18,7 @@ const state = {
   gravity: 0.35,
   towers: [],
   gap: 150,
+  spawnInterval: 120,
   speed: 2.4,
   frame: 0,
   score: 0,
@@ -195,7 +196,7 @@ function tick() {
   }
 
   state.frame += 1;
-  if (state.frame % 90 === 0) {
+  if (state.frame % state.spawnInterval === 0) {
     spawnTowers();
   }
 
