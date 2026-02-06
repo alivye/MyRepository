@@ -24,6 +24,7 @@ const state = {
   best: 0,
   running: false,
   paused: false,
+  gameOver: false,
 };
 
 const colors = {
@@ -48,6 +49,7 @@ function resetGame() {
   state.score = 0;
   state.running = false;
   state.paused = false;
+  state.gameOver = false;
   scoreEl.textContent = state.score;
 }
 
@@ -203,6 +205,8 @@ function tick() {
 
   if (isCollision()) {
     state.running = false;
+    state.gameOver = true;
+    state.plane.velocity = 0;
   }
 
   render();
@@ -210,6 +214,9 @@ function tick() {
 }
 
 function flap() {
+  if (state.gameOver) {
+    return;
+  }
   if (!state.running) {
     state.running = true;
   }
@@ -217,9 +224,10 @@ function flap() {
 }
 
 startBtn.addEventListener("click", () => {
-  if (!state.running) {
-    state.running = true;
+  if (state.gameOver) {
+    resetGame();
   }
+  state.running = true;
   state.paused = false;
 });
 
