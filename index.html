@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Небесный рейс: Башни близнецов</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <header>
+        <h1>Небесный рейс</h1>
+        <p>Управляй самолетом и пролетай между башнями близнецами.</p>
+      </header>
+      <div class="hud">
+        <div class="score">Счет: <span id="score">0</span></div>
+        <div class="best">Рекорд: <span id="best">0</span></div>
+      </div>
+      <canvas id="game" width="480" height="640" aria-label="Игра" role="img"></canvas>
+      <div class="controls">
+        <button id="start">Старт</button>
+        <button id="pause">Пауза</button>
+        <button id="reset">Сброс</button>
+      </div>
+      <div class="help">
+        <p>Нажимай пробел или кликай мышкой, чтобы самолет набирал высоту.</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
